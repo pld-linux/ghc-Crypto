@@ -13,6 +13,7 @@ BuildRequires:	ghc-HUnit
 BuildRequires:	ghc-QuickCheck
 BuildRequires:	ghc-prof
 BuildRequires:	texlive-format-pdflatex
+BuildRequires:	texlive-latex
 BuildRequires:	rpmbuild(macros) >= 1.608
 %requires_releq	ghc
 Requires(post,postun):	/usr/bin/ghc-pkg
