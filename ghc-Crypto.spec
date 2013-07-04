@@ -12,6 +12,7 @@ BuildRequires:	ghc >= 6.12.3
 BuildRequires:	ghc-HUnit
 BuildRequires:	ghc-QuickCheck
 BuildRequires:	ghc-prof
+BuildRequires:	latex2html
 BuildRequires:	texlive-format-pdflatex
 BuildRequires:	texlive-latex
 BuildRequires:	rpmbuild(macros) >= 1.608
