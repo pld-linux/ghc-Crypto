@@ -2,7 +2,7 @@
 Summary:	Collects together existing Haskell cryptographic functions into a package
 Name:		ghc-%{pkgname}
 Version:	4.2.5.1
-Release:	1
+Release:	2
 License:	BSD / GPL
 Group:		Development/Languages
 Source0:	http://hackage.haskell.org/packages/archive/%{pkgname}/%{version}/%{pkgname}-%{version}.tar.gz
