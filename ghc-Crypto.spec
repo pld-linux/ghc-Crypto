@@ -37,7 +37,7 @@ BuildRequires:	texlive-format-pdflatex
 BuildRequires:	texlive-latex
 BuildRequires:	rpmbuild(macros) >= 1.608
 Requires(post,postun):	/usr/bin/ghc-pkg
-%requires_releq	ghc
+%requires_eq	ghc
 Requires:	ghc-array
 Requires:	ghc-base >= 3
 Requires:	ghc-base < 5
