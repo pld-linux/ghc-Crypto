@@ -7,7 +7,7 @@ Summary:	Collects together existing Haskell cryptographic functions into a packa
 Summary(pl.UTF-8):	Zebranie istniejących funkcji kryptograficznych Haskella w pakiet
 Name:		ghc-%{pkgname}
 Version:	4.2.5.1
-Release:	3
+Release:	4
 License:	BSD, GPL v2+ (depending on module)
 Group:		Development/Languages
 #Source0Download: http://hackage.haskell.org/package/Crypto
@@ -19,7 +19,6 @@ BuildRequires:	ghc-HUnit
 BuildRequires:	ghc-QuickCheck >= 2.4.0.1
 BuildRequires:	ghc-array
 BuildRequires:	ghc-base >= 3
-BuildRequires:	ghc-base < 5
 BuildRequires:	ghc-pretty
 BuildRequires:	ghc-random
 %if %{with prof}
@@ -28,7 +27,6 @@ BuildRequires:	ghc-HUnit-prof
 BuildRequires:	ghc-QuickCheck-prof >= 2.4.0.1
 BuildRequires:	ghc-array-prof
 BuildRequires:	ghc-base-prof >= 3
-BuildRequires:	ghc-base-prof < 5
 BuildRequires:	ghc-pretty-prof
 BuildRequires:	ghc-random-prof
 %endif
@@ -40,7 +38,6 @@ Requires(post,postun):	/usr/bin/ghc-pkg
 %requires_eq	ghc
 Requires:	ghc-array
 Requires:	ghc-base >= 3
-Requires:	ghc-base < 5
 Requires:	ghc-pretty
 Requires:	ghc-random
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -70,7 +67,6 @@ Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	ghc-array-prof
 Requires:	ghc-base-prof >= 3
-Requires:	ghc-base-prof < 5
 Requires:	ghc-pretty-prof
 Requires:	ghc-random-prof
 
@@ -134,26 +130,34 @@ rm -rf $RPM_BUILD_ROOT
 %doc CryptoHomePage.html ReadMe.pdf %{name}-%{version}-doc/*
 %{_libdir}/%{ghcdir}/package.conf.d/%{pkgname}.conf
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}
-%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/HSCrypto-%{version}.o
-%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSCrypto-%{version}.a
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSCrypto-%{version}-*.so
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSCrypto-%{version}-*.a
+%exclude %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSCrypto-%{version}-*_p.a
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Codec
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Codec/*.hi
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Codec/*.dyn_hi
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Codec/Binary
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Codec/Binary/*.hi
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Codec/Binary/*.dyn_hi
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Codec/Encryption
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Codec/Encryption/*.hi
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Codec/Encryption/*.dyn_hi
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Codec/Encryption/RSA
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Codec/Encryption/RSA/*.hi
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Codec/Encryption/RSA/*.dyn_hi
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Codec/Text
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Codec/Text/*.hi
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Codec/Text/*.dyn_hi
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Data
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Data/*.hi
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Data/*.dyn_hi
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Data/Digest
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Data/Digest/*.hi
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Data/Digest/*.dyn_hi
 
 %files prof
 %defattr(644,root,root,755)
-%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSCrypto-%{version}_p.a
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHSCrypto-%{version}-*_p.a
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Codec/*.p_hi
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Codec/Binary/*.p_hi
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Codec/Encryption/*.p_hi
