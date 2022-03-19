@@ -7,7 +7,7 @@ Summary:	Collects together existing Haskell cryptographic functions into a packa
 Summary(pl.UTF-8):	Zebranie istniejących funkcji kryptograficznych Haskella w pakiet
 Name:		ghc-%{pkgname}
 Version:	4.2.5.1
-Release:	4
+Release:	5
 License:	BSD, GPL v2+ (depending on module)
 Group:		Development/Languages
 #Source0Download: http://hackage.haskell.org/package/Crypto
